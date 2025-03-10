@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Typing Effect for Header Title
-    const roles = ["Cybersecurity Engineer", "Cloud Security Specialist", "Threat Intelligence Analyst", "AI-Powered Security Expert"];
+    const roles = ["Cybersecurity Engineer", "Cloud Security Specialist", "Cybersecurity Architect", "AI-Powered Security Expert"];
     let roleIndex = 0;
     let charIndex = 0;
     const typingSpeed = 100;
