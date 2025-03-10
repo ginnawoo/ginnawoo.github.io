@@ -4,174 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        #navigation {
-            margin: 20px;
-        }
-
-        #filters {
-            display: flex;
-            justify-content: flex-end;
-            margin: 20px;
-            position: relative;
-        }
-
-        #filters h3 {
-            margin-right: 20px;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        .dropdown button {
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            text-align: left;
-            padding: 5px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            width: 250px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .dropdown-content label {
-            padding: 5px 10px;
-            display: block;
-        }
-
-        .dropdown-content input {
-            margin-right: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        #visualization {
-            margin: 0 auto;
-            width: 70%;
-        }
-
-        .scene {
-            display: none;
-        }
-
-        .scene.active {
-            display: block;
-        }
-
-        .tooltip {
-            position: absolute;
-            text-align: center;
-            padding: 6px;
-            font: 12px sans-serif;
-            background: lightsteelblue;
-            border: 0px;
-            border-radius: 8px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .tooltip-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-
-        .tooltip-container {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-        }
-
-        .tooltip-container p {
-            margin: 0;
-            padding: 0;
-        }
-
-        .tooltip-instruction {
-            font-size: 12px;
-            color: grey;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .data-source {
-            font-size: 10px;
-            color: grey;
-            margin-top: 10px;
-            text-align: center;
-        }
-    </style>
+    <title>Ginna Woo | Cybersecurity Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="navigation">
-        <button id="prev-button" onclick="showPreviousScene()">Previous</button>
-        <button id="next-button" onclick="showNextScene()">Next</button>
-    </div>
-    <div id="filters" style="display:none;">
-        <h3>Filters:</h3>
-        <div class="dropdown">
-            <button>Select Industry</button>
-            <div id="industry-filters" class="dropdown-content checkbox-container">
-                <label><input type="checkbox" value="ALL" checked> ALL</label>
-                <!-- Industry checkboxes will be added here dynamically -->
-            </div>
+    <header>
+        <img src="/images/profile.jpg" alt="Ginna Woo" class="profile-pic">
+        <h1>Ginna Woo</h1>
+        <h2 id="typing-text"></h2> <!-- Dynamic Typing Effect -->
+        <p>Optimizing AI-driven cybersecurity solutions and cloud security operations.</p>
+        <a href="GinnaWooCyberResume2025.pdf" class="btn">Download Resume</a>
+        <button id="dark-mode-toggle">🌙 Toggle Dark Mode</button>
+    </header>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="job">
+            <h3>Booz Allen Hamilton – Cyber & Engineering, Lead Staff Engineer</h3>
+            <p>Jan 2024 – Present</p>
+            <ul>
+                <li>Established and led the Microsoft Security Community of Practice.</li>
+                <li>Integrated Microsoft Security technologies for DoD cloud security.</li>
+                <li>Developed and deployed the Microsoft Sentinel Triage Assistant (STaT).</li>
+                <li>Researched AI-driven cybersecurity solutions for government networks.</li>
+            </ul>
         </div>
-        <div class="dropdown">
-            <button>Select Country</button>
-            <div id="country-filters" class="dropdown-content checkbox-container">
-                <label><input type="checkbox" value="ALL" checked> ALL</label>
-                <!-- Country checkboxes will be added here dynamically -->
-            </div>
+        <div class="job">
+            <h3>Deloitte Consulting – Strategy & Analytics, Solutions Engineer</h3>
+            <p>Sept 2019 – Dec 2021</p>
+            <ul>
+                <li>Developed AI/ML documentation for Google Cloud Platform.</li>
+                <li>Implemented a COVID-19 data platform serving 4.5M users.</li>
+                <li>Led a $1.5M data partnership initiative with Fortune 500 clients.</li>
+            </ul>
         </div>
-        <button onclick="applyFilters()">Apply Filters</button>
-        <button onclick="resetFilters()">Reset Filters</button>
-    </div>
-    <div id="visualization"></div>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
-    <script src="js/scenes.js"></script>
-    <script src="js/main.js"></script>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Certifications</h2>
+        <p><strong>Programming:</strong> SQL, Python, C#, PowerShell, JavaScript (novice)</p>
+        <p><strong>Security:</strong> Azure Sentinel, UEBA, MITRE ATT&CK, SOC Playbooks</p>
+        <p><strong>Certifications:</strong> SC-200, Security+, AWS Certified Cloud Practitioner</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:ginnawoo@gmail.com">ginnawoo@gmail.com</a></p>
+        <p>Phone: (850) 252-0834</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ginnawoo/" target="_blank">linkedin.com/in/ginnawoo</a></p>
+        <p>GitHub: <a href="https://github.com/ginnawoo" target="_blank">github.com/ginnawoo</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ginna Woo | Built with GitHub Pages</p>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
