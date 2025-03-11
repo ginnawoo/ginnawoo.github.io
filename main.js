@@ -1,18 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    const body = document.body;
-
-    darkModeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
-    });
-
-    // Load Dark Mode Preference
-    if (localStorage.getItem("darkMode") === "true") {
-        body.classList.add("dark-mode");
-    }
-
     // Smooth Scroll
     document.querySelectorAll("nav a").forEach(anchor => {
         anchor.addEventListener("click", function (e) {
