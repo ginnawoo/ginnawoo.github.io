@@ -85,7 +85,9 @@ section {
 }
 
 header {
-    background: url('images/background.JPG') center/cover no-repeat;
+    background: url('/images/background.JPG') center/cover no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: white;
     text-align: center;
     padding: 3rem 0;
