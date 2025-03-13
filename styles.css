@@ -1,9 +1,7 @@
 /* Global Dark Theme */
 body {
     background: #121212;
-    /* Dark background */
-    color: #ffffff;
-    /* White text */
+    color: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -11,29 +9,30 @@ body {
 
 /* Header Section */
 header {
-    background: url('images/background.jpg') no-repeat center center fixed;
+    position: relative;
+    background: url('images/backgroundbanner.JPG') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
-/* Name and Title */
-h1,
-h2 {
-    color: white;
-    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+/* Dark Overlay */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Dark overlay */
+    z-index: 1;
 }
 
-/* Sections */
-section {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    /* Glassmorphism Effect */
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+/* Ensure content is above overlay */
+header * {
+    position: relative;
+    z-index: 2;
 }
 
 /* Profile Picture */
@@ -46,29 +45,134 @@ section {
     border: 3px solid white;
 }
 
-/* Buttons */
+/* Improve Header Text */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Sections - Glassmorphism */
+section {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 20px 50px;
+    /* Increase left padding slightly */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+/* Skills & Expertise Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Adjusted for better fit */
+    gap: 20px;
+    /* More consistent spacing */
+    justify-content: center;
+    align-items: stretch;
+    /* Ensures equal height */
+    padding: 20px;
+}
+
+.skill-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    /* Reduced padding for a compact look */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    min-height: 140px;
+    /* Ensures all boxes are equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skill-box:hover {
+    transform: scale(1.02);
+}
+
+.skill-box h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.skill-box p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 auto;
+    max-width: 85%;
+}
+
+/* Ensure text inside sections is positioned well */
+section h2,
+section h3,
+section p,
+section ul {
+    padding-left: 10px;
+    /* Small shift to the right */
+}
+
+/* Lists Styling */
+section ul {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* Enhance Buttons */
 .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    margin-top: 15px;
-    background: #0078D4;
+    background: linear-gradient(45deg, #0078D4, #005ea6);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border-radius: 8px;
     font-weight: bold;
+    display: inline-block;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 120, 212, 0.4);
+    box-shadow: 0px 4px 10px rgba(0, 120, 212, 0.3);
 }
 
 .btn:hover {
-    background: #005ea6;
+    background: linear-gradient(45deg, #005ea6, #004080);
     transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 120, 212, 0.5);
 }
 
-/* Remove Dark Mode Toggle */
-#dark-mode-toggle {
-    display: none;
-    /* Hide the button completely */
+/* Skills & Certifications Section */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+/* Projects Section */
+.project {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+    transform: scale(1.02);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #181818;
+    font-size: 14px;
 }
 
 
